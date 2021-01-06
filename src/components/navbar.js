@@ -4,7 +4,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 class Navigation extends Component {
     render() {
         return (
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">

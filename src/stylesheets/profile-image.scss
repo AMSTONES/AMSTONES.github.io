@@ -2,11 +2,19 @@
     // display: inherit;
     // flex-direction: inherit;
     // align-items: center;
+
     &__portrait {
-        width: 50%;
-        min-width: 50px;
-        max-width: 100px;
+        width: 25%;
     }
+
+    @include media-breakpoint-up(md) {
+        &__portrait {
+        width: 50%;
+        //min-width: 50px;
+        //max-width: 100px;
+        }
+    }
+
     &__caption {
 
     }

@@ -1,21 +1,37 @@
-@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-grid.scss";
 
 .sidebar {
+    background-color: $black;
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    // width: 100vw;
     width: 100vw;
     height: 10vh;
-    flex-direction: row;
+    // flex-direction: row;
+    &__skills-container {
+        display: none;
+    }
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   .sidebar {
-    position:fixed;
-    width: $sidebar-width;
-    min-width: 190px;
-    //breakpoint here?
-    height: 100vh;
-    background-color: $black;
-    display: flex;
+//     position:fixed;
+//     width: $sidebar-width;
+//     min-width: 190px;
+//     //breakpoint here?
     flex-direction: column;
+    height: 100vh;
+    width:33%;
+    max-width: 360px;
     align-items: center;
+    padding: 20px;
+    &__skills-container {
+        display: block;
+    }
+//     background-color: $black;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
   }
 }
