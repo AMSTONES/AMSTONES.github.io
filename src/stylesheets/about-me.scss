@@ -1,0 +1,20 @@
+.about {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    &__headline {
+        color: #999;
+        font-size: 72px;
+        margin-bottom: 10px;
+    }
+    &__lower-text {
+        display: flex;
+    }
+    &__role {
+        padding: 20px;
+    }
+    &__desc {
+        max-width: 300px;
+        padding: 20px;
+    }
+}

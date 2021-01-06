@@ -1,6 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+
 .sidebar {
+    width: 100vw;
+    height: 10vh;
+    flex-direction: row;
+}
+
+@include media-breakpoint-up(lg) {
+  .sidebar {
     position:fixed;
-    width: 15vw;
+    width: $sidebar-width;
+    min-width: 190px;
+    //breakpoint here?
     height: 100vh;
     background-color: $black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

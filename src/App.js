@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.scss';
 import Sidebar from './components/sidebar'
+import MainContainer from './components/main-container';
+import Navigation from './components/navbar';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
+        <Navigation/>
         <Sidebar/>
+        <MainContainer/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
