@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { Switch, Route} from "react-router-dom";
 import AboutMe from './about-me';
+import Portfolio from './portfolio';
+import Skills from './skills';
 
 class MainContainer extends Component {
     render() {
-        const displaySet = (input) => {
-            switch (input) {
-                case "AboutMe":
-                    <AboutMe/>;
-                    break;
-                default:
-                    break;
-            }
-        }
+
         return (
             <div className="main-container">
-                <AboutMe/>
+               <Switch>
+                    <Route path="/portfolio">
+                        <Portfolio />
+                    </Route>
+                    <Route path="/skills">
+                        <Skills/>
+                    </Route>
+                    <Route exact path="/">
+                        <AboutMe/>
+                    </Route>
+               </Switch>
             </div>
         )
     }

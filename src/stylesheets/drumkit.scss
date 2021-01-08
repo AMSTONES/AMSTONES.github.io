@@ -1,0 +1,62 @@
+#pad-container {
+	display: grid;
+  max-width: 80vh;
+	grid-template-columns: repeat(3, minmax(auto, 250px));
+	grid-gap: 10px;
+  place-items: start;
+    .drum-pad {
+      background: #fff;
+      font-size: 70px;
+      width: 100%;
+      position: relative;
+      border-radius: 4%;
+      cursor: pointer;
+      border: 2px solid $dark-blue;
+      span {
+        color: $dark-blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: calc(40px * 2);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+      }
+    }
+    .drum-pad::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      padding-bottom: calc(100% - 24.5px);
+    }
+  .drum-pad::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+}
+
+#drum-machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#drum-display {
+  width: 30%;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 24px;
+  background: $white;
+  border: 2px solid $dark-blue;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $dark-blue;
+  padding: 4px;
+  box-shadow: inset 0px -7px 10px #aaa;
+}
