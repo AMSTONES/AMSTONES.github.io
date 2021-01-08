@@ -1,0 +1,52 @@
+@import 'colours';
+
+#calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $white;
+}
+
+#display-container{
+  width: 100%;
+  height: 10vh;
+  min-height: 100px;
+  //background: white;
+  border: #3f3f3f 2px solid;
+  font-size: 64px;
+  color: #3f3f3f;
+  text-align: right;
+  #storedEquation {
+    font-size: 32px;
+  }
+}
+
+#keyboard {
+  display: grid;
+  max-width: 80vh;
+	grid-template-columns: repeat(5, minmax(25px, 100px));
+  grid-gap: 0px;
+  text-align: right;
+  place-items: start;
+  .key {
+    //width: 68px;
+    //height: 68px;
+    //min-width: 68px;
+    //padding: 5px;
+    //background: green;
+    color: $light-grey;
+    background: $white;
+    width: 100%;
+    font-size: 40px;
+    border: #d4d4d4 1px solid;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+  }
+  .key::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      padding-bottom: calc(100% - 10px);
+  }
+}
