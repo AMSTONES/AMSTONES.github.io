@@ -4,12 +4,8 @@ class ProfileImage extends Component {
     render() {
         return (
             <div className="profile-image">
-                <h1>Bingo</h1>
-                <div className="hexagon-outer">
-                    <div className="hexagon-inner">
-                    </div>
-                </div>
-
+                <img className="profile-image__portrait" src="images/ams-hex.png"/>
+                <h2 className="profile-image__caption">Alexander Stones</h2>
             </div>
         )
     }

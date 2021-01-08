@@ -5,3 +5,16 @@
     background-image: url('../images/water-darkened.png');
     background-size: cover;
 }
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@include respond-to('medium') {
+    .main-container {
+        margin-left: calc(#{$sidebar-width} + (#{$sidebar-padding} * 2) );
+    }
+}

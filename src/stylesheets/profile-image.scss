@@ -1,0 +1,24 @@
+.profile-image {
+    // display: inherit;
+    // flex-direction: inherit;
+    // align-items: center;
+
+    &__portrait {
+        width: 25%;
+    }
+
+    @include respond-to('medium') {
+        &__portrait {
+        width: 50%;
+        //min-width: 50px;
+        //max-width: 100px;
+        }
+    }
+    // @include media-breakpoint-up(md) {
+    //
+    // }
+
+    &__caption {
+
+    }
+}
