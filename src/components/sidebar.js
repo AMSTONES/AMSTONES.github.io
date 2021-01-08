@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import ContactButton from './contact-button';
 // import ProfileImage from './profile-image';
-import { Container, Row, Col } from "react-bootstrap";
 class Sidebar extends Component {
     render () {
         return (
                 <div className="sidebar">
-                    {/* <Container> */}
                             <img className="profile-image__portrait" src="images/ams-hex.png" />
                             <h2 className="profile-image__caption">Alexander Stones</h2>
                         <div className="sidebar__skills-container">
@@ -20,7 +18,6 @@ class Sidebar extends Component {
                             </ul>
                         </div>
                         <ContactButton />
-                    {/* </Container> */}
                 </div>
 
         )

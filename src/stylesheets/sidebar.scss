@@ -1,5 +1,3 @@
-@import "~bootstrap/scss/bootstrap-grid.scss";
-
 .sidebar {
     background-color: $black;
     position: fixed;
@@ -14,24 +12,17 @@
     }
 }
 
-@include media-breakpoint-up(md) {
-  .sidebar {
-//     position:fixed;
-//     width: $sidebar-width;
-//     min-width: 190px;
-//     //breakpoint here?
-    flex-direction: column;
-    height: 100vh;
-    width:33%;
-    max-width: 360px;
-    align-items: center;
-    padding: 20px;
-    &__skills-container {
-        display: block;
+// @include media-breakpoint-up(md) {
+    @include respond-to('medium') {
+        .sidebar {
+        flex-direction: column;
+        height: 100vh;
+        width: $sidebar-width;
+        max-width: 360px;
+        align-items: center;
+        padding: $sidebar-padding;
+            &__skills-container {
+                display: block;
+            }
+        }
     }
-//     background-color: $black;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-  }
-}

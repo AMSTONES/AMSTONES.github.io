@@ -4,8 +4,9 @@
     //left: 20%;
     &__headline {
         color: #999;
-        font-size: 72px;
+        font-size: clamp(3rem, 10vw, 8rem);
         margin-bottom: 10px;
+        text-align: center;
     }
     &__lower-text {
         display: flex;
