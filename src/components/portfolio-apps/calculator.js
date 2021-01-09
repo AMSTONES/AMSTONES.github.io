@@ -25,7 +25,7 @@ const KEYARRANGEMENT = [
             value: '9'
         },
         {
-            id: '',
+            id: 'empty1',
             keyType: 'space',
             value: null
         },
@@ -92,7 +92,7 @@ const KEYARRANGEMENT = [
     ],
     [
         {
-            id: '',
+            id: 'empty2',
             keyType: 'space',
             value: null
         },
@@ -107,7 +107,7 @@ const KEYARRANGEMENT = [
             value: '.'
         },
         {
-            id: '',
+            id: 'empty3',
             keyType: 'space',
             value: null
         },
@@ -125,7 +125,7 @@ class Key extends React.Component {
     }
     render() {
         return (
-            <div class={'key ' + this.props.type} id={this.props.id} value={this.props.value} onClick={this.handleClick.bind(this)}>
+            <div className={'key ' + this.props.type} id={this.props.id} value={this.props.value} onClick={this.handleClick.bind(this)}>
                 {this.props.displayValue}
             </div>
         )
@@ -144,7 +144,7 @@ class Keyboard extends React.Component {
     render() {
         const allKeys = KEYARRANGEMENT.flat().map(key => {
             return (
-                <Key id={key.id} type={key.keyType} value={key.value}
+                <Key id={key.id} type={key.keyType} value={key.value} key={key.id}
                     displayValue={key.displayValue || key.value}
                     handleInput={this.props.handleInput} />
             )
@@ -163,8 +163,8 @@ class Display extends React.Component {
         //exclude if negative at front of result
         const opRegex = /[-+/*]/;
         let display
-        if (!this.props.currentOperation && !this.props.storedResult ||
-            opRegex.test(this.props.storedResult.slice(-1)) && !this.props.currentOperation) {
+        if ((!this.props.currentOperation && !this.props.storedResult) ||
+            (opRegex.test(this.props.storedResult.slice(-1)) && !this.props.currentOperation)) {
             display = '0'
         } else {
             if (!opRegex.test(this.props.storedResult.slice(-1)) && !this.props.currentOperation) {
@@ -205,7 +205,6 @@ class Calculator extends React.Component {
             storedResult: '',
             currentOperation: ''
         })
-        console.log(this.state);
     }
 
     evaluate() {
@@ -218,12 +217,13 @@ class Calculator extends React.Component {
     }
     addNumToOperation(char) {
         if (char === null) return
-        let addChar = ((this.state.currentOperation === '0' && char === '0') || (char == '.' && this.state.currentOperation.includes('.'))) ? '' : char;
+        let addChar = ((this.state.currentOperation === '0' && char === '0') || (char === '.' && this.state.currentOperation.includes('.'))) ? '' : char;
         const opRegex = /[-+/*]/;
-        let replaceResult = (addChar != '' && !opRegex.test(this.state.storedResult)) ? '' : this.state.storedResult
+        let replaceResult = (addChar !== '' && !opRegex.test(this.state.storedResult)) ? '' : this.state.storedResult
+        const opUpdate = this.state.currentOperation + addChar
         this.setState({
             storedResult: replaceResult,
-            currentOperation: this.state.currentOperation += addChar
+            currentOperation: opUpdate
         })
     }
 
@@ -233,7 +233,7 @@ class Calculator extends React.Component {
     addOperator(char) {
         const current = this.state.currentOperation;
         const stored = this.state.storedResult;
-        const nonNegOp = /[+/*]/;
+        // const nonNegOp = /[+/*]/;
 
         if (char === '-') {
             if (stored.slice(-1) !== '-') {
@@ -265,7 +265,6 @@ class Calculator extends React.Component {
             case /[-+*/]/.test(char):
                 return this.addOperator(char);
             case /=|Enter/.test(char):
-                console.log('hit equal')
                 return this.evaluate();
             default:
                 return this.addNumToOperation(char);
@@ -282,7 +281,6 @@ class Calculator extends React.Component {
 
     handleKeyPress(event) {
         const regex = /\d|[-+*/=.]|Enter/
-        console.log(event.key)
         if (event.key.match(regex)) { this.handleInput(event.key) }
     }
     render() {
