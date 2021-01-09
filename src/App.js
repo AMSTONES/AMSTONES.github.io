@@ -3,7 +3,7 @@ import './App.scss';
 import Sidebar from './components/sidebar'
 import MainContainer from './components/main-container';
 import Navigation from './components/navbar';
-import AboutMe from './components/about-me';
+import CvLink from './components/cv-link';
 
 class App extends React.Component {
 
@@ -13,6 +13,7 @@ class App extends React.Component {
             <Navigation />
             <Sidebar />
             <MainContainer/>
+            <CvLink/>
         </div>
         );
     }

@@ -119,13 +119,8 @@ const KEYARRANGEMENT = [
     ]
 ]
 
-const ACCEPTEDKEYS = KEYARRANGEMENT.flat().map(key => {
-    return key
-})
-
 class Key extends React.Component {
     handleClick(event) {
-        //console.log(this.props.value)
         this.props.handleInput(this.props.value);
     }
     render() {
@@ -178,7 +173,6 @@ class Display extends React.Component {
                 display = this.props.currentOperation
             }
         }
-        //console.log(display, this.props.currentOperation,'display')
         return (
             <div id='display-container'>
                 <div id='storedEquation'>{(this.props.storedResult) ?
@@ -207,7 +201,6 @@ class Calculator extends React.Component {
     }
 
     clear() {
-        //console.log(this.state.currentOperation);
         this.setState({
             storedResult: '',
             currentOperation: ''
@@ -241,34 +234,8 @@ class Calculator extends React.Component {
         const current = this.state.currentOperation;
         const stored = this.state.storedResult;
         const nonNegOp = /[+/*]/;
-        console.log(char, current, stored, 'char, current, stored');
-        const removeLast = string => {
-            return string.slice(0, -1);
-        }
-
-        const testLast = string => {
-            return nonNegOp.test(string.slice(-1))
-        }
-
-        const replaceLast = (stored, char) => {
-            return stored.slice(0, -1) + char;
-        }
-
-        const addChar = (stored, char) => {
-            return stored + char;
-        }
-
-
-
-        const minusComp = (current, char) => {
-            console.log(current.slice(-1))
-        }
-
-        //minusComp(current, char);
-        //console.log(testLast(stored))
 
         if (char === '-') {
-            //console.log(stored, current, 'in func');
             if (stored.slice(-1) !== '-') {
                 this.setState({
                     storedResult: stored + current + char,
@@ -287,39 +254,6 @@ class Calculator extends React.Component {
             })
 
         }
-
-        // const lastSwitch = (char, current, string) => {
-        //   console.log (current, string, 'last switch start')
-        //   if (char == '-' && string.slice(-1) != '-') {
-        //     return string + current + char;
-        //   } else if (testLast(string)) {
-        //       string = removeLast(string);
-        //       console.log(string, 'else if')
-        //       return lastSwitch(char, current, string);
-        //   } else {
-        //       console.log(string, current, char, 'result')
-        //       return string + current + char
-        //   }
-        // }
-
-
-        //minusComp(stored, char);
-
-        //       if (this.state.currentOperation == '') {
-        //           let result = lastSwitch(char,
-        //                                   this.state.currentOperation,
-        //                                   this.state.storedResult);
-
-        //          this.setState({
-        //           storedResult: result,
-        //           currentOperation: ''
-        //         })
-        //         } else {
-        //         this.setState({
-        //           storedResult: this.state.storedResult+=this.state.currentOperation+char,
-        //           currentOperation: ''
-        //         })
-        //       }
     }
 
     handleInput(char) {
