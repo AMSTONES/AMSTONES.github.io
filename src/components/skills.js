@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import DrumkitApp from './portfolio-apps/drumkit';
 class Skills extends Component {
 
     render() {
         return (
-            <div className="Skills">
+            <div className="skills">
                 <h1>Skills</h1>
-                <DrumkitApp/>
+
             </div>
 
         )
