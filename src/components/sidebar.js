@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContactButton from './contact-button';
-import {NavLink} from "react-router-dom";
+import {NavLink, BrowserRouter} from "react-router-dom";
+import AnimatedSwitch from './main-container';
 
 // import ProfileImage from './profile-image';
 class Sidebar extends Component {
