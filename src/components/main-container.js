@@ -1,11 +1,28 @@
-import React, { Component } from 'react';
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route, withRouter} from "react-router-dom";
 import AboutMe from './about-me';
 import Portfolio from './portfolio';
 import Skills from './skills';
+import {
+    TransitionGroup,
+    CSSTransition
+} from "react-transition-group";
 
-class MainContainer extends Component {
-    render() {
+const AnimatedSwitch = withRouter(({ location }) => (
+    <div className="main-container">
+        <TransitionGroup>
+        <CSSTransition key={location.key} classNames="slide" timeout={1000}>
+            <Switch>
+                <Route path="/" component={AboutMe} exact />
+                <Route path="/skills" component={Skills} />
+                <Route path="/portfolio" component={Portfolio} />
+            </Switch>
+
+        </CSSTransition>
+    </TransitionGroup>
+     </div>
+));
+
+function MainContainer() {
 
         return (
             <div className="main-container">
@@ -22,7 +39,6 @@ class MainContainer extends Component {
                </Switch>
             </div>
         )
-    }
 }
 
-export default MainContainer
+export default AnimatedSwitch
